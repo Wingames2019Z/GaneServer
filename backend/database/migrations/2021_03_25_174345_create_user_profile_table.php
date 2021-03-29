@@ -20,9 +20,9 @@ class CreateUserProfileTable extends Migration
                 $table->string('user_name', 32)->charset('utf8');
                 $table->unsignedInteger('coin')->default(0);
                 $table->unsignedSmallInteger('character')->default(0);
-                $table->unsignedInteger('chara_price')->default(0);
-                $table->unsignedInteger('chara_reward_price')->default(0);
-                $table->unsignedInteger('stage_reward_price')->default(0);
+                $table->unsignedInteger('chara_price')->default(150);
+                $table->unsignedInteger('chara_reward_price')->default(120);
+                $table->unsignedInteger('stage_reward_price')->default(120);
                 $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
                 $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
                 $table->primary('user_id');
