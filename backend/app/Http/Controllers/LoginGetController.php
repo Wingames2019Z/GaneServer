@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\UserProfile;
 use App\UserLogin;
+use App\MasterLoginBonus;
 
 class LoginGetController extends Controller
 {
@@ -12,6 +14,7 @@ class LoginGetController extends Controller
         //DBからデータ取得
 		$user_id = $request->user_id;
 		$user_login = UserLogin::where('user_id', $user_id)->first();
+		$user_profile = UserProfile::where('user_id', $user_id)->first();
         $login_day = $user_login->login_day;
         $last_login_at = $user_login->last_login_at;
 
@@ -24,20 +27,27 @@ class LoginGetController extends Controller
         //24時間経過してればボーナス付与 86400秒で１日
         if($ElapsedTime > 1)
         {
-            $user_login->login_day = $login_day + 1;
+			if($login_day < 10){
+				$user_login->login_day = $login_day + 1;
+				$master_login_bonus = MasterLoginBonus::where('login_day', $user_login->login_day)->first();
+				$user_profile->coin += $master_login_bonus->bonus_coin;
+			
 
             //データの書き込み 
-		try {
-			$user_login->save();
-		} catch (\PDOException $e) {
-			logger($e->getMessage());
-			return config('error.ERROR_DB_UPDATE');
+			try {
+				$user_login->save();
+				$user_profile->save();
+			} catch (\PDOException $e) {
+				logger($e->getMessage());
+				return config('error.ERROR_DB_UPDATE');
+			}
 		}
-        }
+	}
 
 		//クライアントへのレスポンス
 		$response = array(
 			'user_login' => $user_login,
+			'user_profile' => $user_profile,
 		);
 
 		return json_encode($response);
