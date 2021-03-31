@@ -7,6 +7,7 @@ use App\UserLogin;
 use App\UserStage;
 use App\UserBest;
 use App\UserChara;
+use App\MasterLoginBonus;
 
 class RegistrationController extends Controller
 {
@@ -87,6 +88,7 @@ class RegistrationController extends Controller
 		$user_stage = UserStage::where('user_id', $user_id)->first();
 		$user_best = UserBest::where('user_id', $user_id)->first();
 		$user_chara = UserChara::where('user_id', $user_id)->first();
+		$master_login_bonus = MasterLoginBonus::all();
 
 		$response = array(
 			'user_profile' => $user_profile,
@@ -94,6 +96,7 @@ class RegistrationController extends Controller
 			'user_stage' => $user_stage,
 			'user_best' => $user_best,
 			'user_chara' => $user_chara,
+			'master_login_bonus' => $master_login_bonus,
 		);
 
 		return json_encode($response);
