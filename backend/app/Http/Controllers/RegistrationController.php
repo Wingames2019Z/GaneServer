@@ -8,6 +8,7 @@ use App\UserStage;
 use App\UserBest;
 use App\UserChara;
 use App\MasterLoginBonus;
+use DB;
 
 class RegistrationController extends Controller
 {
@@ -89,6 +90,14 @@ class RegistrationController extends Controller
 		$user_best = UserBest::where('user_id', $user_id)->first();
 		$user_chara = UserChara::where('user_id', $user_id)->first();
 		$master_login_bonus = MasterLoginBonus::all();
+        $ranking = DB::select("SELECT user_best.user_id, best_stage1 AS score, user_name FROM user_best INNER JOIN user_profile ON user_best.user_id = user_profile.user_id order by best_stage1 desc");
+		
+		foreach ($ranking as $value){
+			if($value->user_id != $user_id){
+				$value->user_id = NULL;
+			}
+		}
+
 
 		$response = array(
 			'user_profile' => $user_profile,
@@ -97,6 +106,7 @@ class RegistrationController extends Controller
 			'user_best' => $user_best,
 			'user_chara' => $user_chara,
 			'master_login_bonus' => $master_login_bonus,
+			'ranking' => $ranking,
 		);
 
 		return json_encode($response);
