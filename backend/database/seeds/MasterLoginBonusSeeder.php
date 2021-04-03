@@ -63,12 +63,26 @@ class MasterLoginBonusSeeder extends Seeder
             ],         
           ]);
 
-          DB::table('master_shop')->insert([
-            [
-                'start_price' => '100',
-                'price_increase' => '1.5',
-                'reward_increase' => '1.2',
-            ],         
-          ]);
+          $price = 100;
+          $reward =100;
+          for ($i = 1; $i <= 20; $i++) {
+
+            $price = $price * 1.5;
+            $price = floor($price);
+
+            $reward = $reward * 1.2;
+            $reward = floor($reward);
+
+            DB::table('master_shop')->insert([
+                [
+                    'num' => $i,
+                    'price' => $price,
+                    'reward' => $reward,
+                ],         
+            ]);
+        }
+
+
+
     }
 }

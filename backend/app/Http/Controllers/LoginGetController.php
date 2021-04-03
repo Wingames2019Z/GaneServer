@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\UserProfile;
 use App\UserLogin;
+use App\UserStage;
 use App\MasterLoginBonus;
 
 class LoginGetController extends Controller
@@ -15,6 +16,7 @@ class LoginGetController extends Controller
 		$user_id = $request->user_id;
 		$user_login = UserLogin::where('user_id', $user_id)->first();
 		$user_profile = UserProfile::where('user_id', $user_id)->first();
+		$user_stage = UserStage::where('user_id', $user_id)->first();
         $login_day = $user_login->login_day;
         $last_login_at = $user_login->last_login_at;
 
@@ -48,6 +50,7 @@ class LoginGetController extends Controller
 		$response = array(
 			'user_login' => $user_login,
 			'user_profile' => $user_profile,
+			'user_stage' => $user_stage,
 		);
 
 		return json_encode($response);

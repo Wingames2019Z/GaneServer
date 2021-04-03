@@ -16,9 +16,10 @@ class CreateMasterShopTable extends Migration
         if(!Schema::hasTable('master_shop'))
         {
             Schema::create('master_shop', function (Blueprint $table) {            
-                $table->unsignedInteger('start_price')->default(100);
-                $table->float('price_increase')->default(1.5);
-                $table->float('reward_increase')->default(1.2);
+                $table->string('num', 37)->charset('utf8');
+                $table->unsignedInteger('price')->default(0);
+                $table->unsignedInteger('reward')->default(0);
+                $table->primary('num');
             });
         }
     }
