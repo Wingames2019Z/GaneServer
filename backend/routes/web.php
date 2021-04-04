@@ -23,3 +23,5 @@ Route::get('best_set/user_id/{user_id}/stage/{stage}/score/{score}','BestSetCont
 Route::get('ranking_get/user_id/{user_id}/stage/{stage}','RankingGetController@RankingGet');
 
 Route::get('stage_shop/user_id/{user_id}/stage/{stage}','StageShopController@StageGet');
+
+Route::get('chara_shop/user_id/{user_id}','CharaShopController@CharaGet');
