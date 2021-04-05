@@ -25,3 +25,5 @@ Route::get('ranking_get/user_id/{user_id}/stage/{stage}','RankingGetController@R
 Route::get('stage_shop/user_id/{user_id}/stage/{stage}','StageShopController@StageGet');
 
 Route::get('chara_shop/user_id/{user_id}','CharaShopController@CharaGet');
+
+Route::get('reward/user_id/{user_id}/reward_type/{reward_type}','RewardController@RewardGet');

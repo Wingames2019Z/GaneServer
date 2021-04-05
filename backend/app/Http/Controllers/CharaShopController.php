@@ -70,10 +70,10 @@ class CharaShopController extends Controller
 			}
 		}
 
-        if($user_profile->coin >= $price){
+        if($user_profile->coin >= $price && $open < 6){
            $max = count($num) -1;
             $open_num = mt_rand(0, $max);
-            dd($num);
+            //dd($num);
             switch($num[$open_num]){
                 case 1:
                     $user_chara->open_chara1 = 1;
@@ -125,6 +125,7 @@ class CharaShopController extends Controller
             'user_profile' => $user_profile,
 			'user_chara' => $user_chara,
 		);
+
         return json_encode($response);
 
 

@@ -24,9 +24,8 @@ class RegistrationController extends Controller
 		$user_profile->user_name = $request->user_name;
 		$user_profile->coin = config('constants.COIN_DEFAULT');
 		$user_profile->character = config('constants.CHARA_DEFAULT');
-		$user_profile->chara_price = config('constants.PRICE_DEFAULT');
-		$user_profile->chara_reward_price = config('constants.REWARD_DEFAULT');
-		$user_profile->stage_reward_price = config('constants.REWARD_DEFAULT');
+		$user_profile->chara_reward_count = config('constants.REWARD_DEFAULT');
+		$user_profile->stage_reward_count = config('constants.REWARD_DEFAULT');
 		
 		//初期データの設定　user_login
 		$user_login = new UserLogin;
