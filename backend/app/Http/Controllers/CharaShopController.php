@@ -111,8 +111,10 @@ class CharaShopController extends Controller
              try {
                 $user_profile->save();
                 $user_chara->save();
+                \DB::commit();
                 }   
                  catch (\PDOException $e) {
+                    \DB::rollback();
                     logger($e->getMessage());
                     return config('error.ERROR_DB_UPDATE');
             }              

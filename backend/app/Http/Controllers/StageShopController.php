@@ -31,8 +31,10 @@ class StageShopController extends Controller
                     try {
                         $user_profile->save();
                         $user_stage->save();
+                        \DB::commit();
                     } 
                     catch (\PDOException $e) {
+                        \DB::rollback();
                         logger($e->getMessage());
                         return config('error.ERROR_DB_UPDATE');
                     }                    
@@ -49,8 +51,10 @@ class StageShopController extends Controller
                     try {
                         $user_profile->save();
                         $user_stage->save();
+                        \DB::commit();
                     } 
                     catch (\PDOException $e) {
+                        \DB::rollback();
                         logger($e->getMessage());
                         return config('error.ERROR_DB_UPDATE');
                     }                    
@@ -67,8 +71,10 @@ class StageShopController extends Controller
                     try {
                         $user_profile->save();
                         $user_stage->save();
+                        \DB::commit();
                     } 
                     catch (\PDOException $e) {
+                        \DB::rollback();
                         logger($e->getMessage());
                         return config('error.ERROR_DB_UPDATE');
                     }                    
@@ -84,8 +90,10 @@ class StageShopController extends Controller
                     try {
                         $user_profile->save();
                         $user_stage->save();
+                        \DB::commit();
                     } 
                     catch (\PDOException $e) {
+                        \DB::rollback();
                         logger($e->getMessage());
                         return config('error.ERROR_DB_UPDATE');
                     }                    
@@ -102,8 +110,10 @@ class StageShopController extends Controller
                     try {
                         $user_profile->save();
                         $user_stage->save();
+                        \DB::commit();
                     } 
                     catch (\PDOException $e) {
+                        \DB::rollback();
                         logger($e->getMessage());
                         return config('error.ERROR_DB_UPDATE');
                     }                    
@@ -120,8 +130,10 @@ class StageShopController extends Controller
                     try {
                         $user_profile->save();
                         $user_stage->save();
+                        \DB::commit();
                     } 
                     catch (\PDOException $e) {
+                        \DB::rollback();
                         logger($e->getMessage());
                         return config('error.ERROR_DB_UPDATE');
                     }                    
@@ -138,8 +150,10 @@ class StageShopController extends Controller
                     try {
                         $user_profile->save();
                         $user_stage->save();
+                        \DB::commit();
                     } 
                     catch (\PDOException $e) {
+                        \DB::rollback();
                         logger($e->getMessage());
                         return config('error.ERROR_DB_UPDATE');
                     }                    
@@ -156,8 +170,10 @@ class StageShopController extends Controller
                     try {
                         $user_profile->save();
                         $user_stage->save();
+                        \DB::commit();
                     } 
                     catch (\PDOException $e) {
+                        \DB::rollback();
                         logger($e->getMessage());
                         return config('error.ERROR_DB_UPDATE');
                     }                    
@@ -174,8 +190,10 @@ class StageShopController extends Controller
                     try {
                         $user_profile->save();
                         $user_stage->save();
+                        \DB::commit();
                     } 
                     catch (\PDOException $e) {
+                        \DB::rollback();
                         logger($e->getMessage());
                         return config('error.ERROR_DB_UPDATE');
                     }                    

@@ -65,8 +65,10 @@ class RewardController extends Controller
         //データの書き込み 
         try {
             $user_profile->save();
+            \DB::commit();
         }   
         catch (\PDOException $e) {
+            \DB::rollback();
             logger($e->getMessage());
             return config('error.ERROR_DB_UPDATE');
         }

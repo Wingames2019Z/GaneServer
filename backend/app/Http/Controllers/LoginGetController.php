@@ -31,22 +31,24 @@ class LoginGetController extends Controller
         //24時間経過してればボーナス付与 86400秒で１日
         if($ElapsedTime > 1)
         {
+			$user_login->login_day = $login_day + 1;
 			if($login_day < 10){
-				$user_login->login_day = $login_day + 1;
+
 				$master_login_bonus = MasterLoginBonus::where('login_day', $user_login->login_day)->first();
 				$user_profile->coin += $master_login_bonus->bonus_coin;
-			
-
-            //データの書き込み 
+			}
+            //データの書き込み  
 			try {
 				$user_login->save();
 				$user_profile->save();
+				\DB::commit();
 			} catch (\PDOException $e) {
 				logger($e->getMessage());
+				\DB::rollback();
 				return config('error.ERROR_DB_UPDATE');
 			}
+		
 		}
-	}
 
 		//クライアントへのレスポンス
 		$response = array(

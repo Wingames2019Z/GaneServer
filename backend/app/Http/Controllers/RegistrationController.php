@@ -77,8 +77,9 @@ class RegistrationController extends Controller
 			$user_stage->save();
 			$user_best->save();
 			$user_chara->save();
-
+			\DB::commit();
 		} catch (\PDOException $e) {
+			\DB::rollback();
 			logger($e->getMessage());
 			return config('error.ERROR_DB_UPDATE');
 		}
