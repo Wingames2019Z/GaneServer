@@ -14,51 +14,51 @@ class UserSeeder extends Seeder
       DB::table('user_profile')->insert([
         [
           'user_id' => 0,
-          'user_name' => 'takeru',
+          'user_name' => '武尊',
         ],
         [
             'user_id' => 11,
-            'user_name' => 'masato',
+            'user_name' => '魔裟斗',
           ],
           [
             'user_id' => 1,
-            'user_name' => 'musashi',
+            'user_name' => '武蔵',
           ],
           [
             'user_id' => 2,
-            'user_name' => 'tenshin',
+            'user_name' => '天心',
           ],
           [
             'user_id' => 3,
-            'user_name' => 'kid',
+            'user_name' => 'キッド',
           ],
           [
             'user_id' => 4,
-            'user_name' => 'kyoji',
+            'user_name' => 'きょうじ',
           ],
           [
             'user_id' => 5,
-            'user_name' => 'kai',
+            'user_name' => 'かい',
           ],
           [
             'user_id' => 6,
-            'user_name' => 'mikuru',
+            'user_name' => 'みくる',
           ],
           [
             'user_id' => 7,
-            'user_name' => 'leona',
+            'user_name' => 'れおな',
           ],
           [
             'user_id' => 8,
-            'user_name' => 'yutaka',
+            'user_name' => 'ゆたか',
           ],
           [
             'user_id' => 9,
-            'user_name' => 'taiju',
+            'user_name' => '大珠',
           ],
           [
             'user_id' => 10,
-            'user_name' => 'kento',
+            'user_name' => 'けんと',
           ],
       ]);
 

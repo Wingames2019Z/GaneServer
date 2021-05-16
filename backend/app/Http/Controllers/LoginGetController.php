@@ -29,13 +29,16 @@ class LoginGetController extends Controller
         $ElapsedTime = $CurrentDate - $LastLoginDate;
 
         //24時間経過してればボーナス付与 86400秒で１日
-        if($ElapsedTime > 1)
+        if($ElapsedTime > 86400)
         {
 			$user_login->login_day = $login_day + 1;
 			if($login_day < 10){
 
 				$master_login_bonus = MasterLoginBonus::where('login_day', $user_login->login_day)->first();
-				$user_profile->coin += $master_login_bonus->bonus_coin;
+
+				if($user_profile->coin < 1000000){
+					$user_profile->coin += $master_login_bonus->bonus_coin;
+				}
 			}
             //データの書き込み  
 			try {
