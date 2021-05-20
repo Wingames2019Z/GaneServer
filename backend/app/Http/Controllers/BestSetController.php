@@ -61,7 +61,7 @@ class BestSetController extends Controller
             
             case 8:
                 if($user_best->best_stage8 < $score){
-                    $user_best->best_stage1 = $score;
+                    $user_best->best_stage8 = $score;
                 }                           
             break;
                                             
