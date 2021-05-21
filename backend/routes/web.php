@@ -29,3 +29,5 @@ Route::get('chara_shop/user_id/{user_id}','CharaShopController@CharaGet');
 Route::get('reward/user_id/{user_id}/reward_type/{reward_type}','RewardController@RewardGet');
 
 Route::get('modifyName/user_id/{user_id}/new_name/{new_name}', 'NameModifyController@Modify');
+
+Route::get('share_bonus', 'ShareBonusController@LoginGet');
