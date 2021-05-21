@@ -30,4 +30,4 @@ Route::get('reward/user_id/{user_id}/reward_type/{reward_type}','RewardControlle
 
 Route::get('modifyName/user_id/{user_id}/new_name/{new_name}', 'NameModifyController@Modify');
 
-Route::get('share_bonus', 'ShareBonusController@LoginGet');
+Route::get('share_bonus', 'ShareBonusController@BonusGet');
