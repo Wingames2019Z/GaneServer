@@ -29,7 +29,7 @@ class LoginGetController extends Controller
         $ElapsedTime = $CurrentDate - $LastLoginDate;
 
         //24時間経過してればボーナス付与 86400秒で１日
-        if($ElapsedTime > 60)
+        if($ElapsedTime > 86400)
         {
 			$user_login->login_day = $login_day + 1;
 			if($login_day < 10){
